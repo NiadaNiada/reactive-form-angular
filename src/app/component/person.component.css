@@ -1,11 +1,15 @@
-.list-title{
+.list-title {
   font-size: x-large;
   color: crimson;
 }
+
 ul {
   list-style-type: circle;
 }
+
 .container {
   margin: 15px;
   padding: 0px;
 }
+
+/*# sourceMappingURL=person.component.css.map */
