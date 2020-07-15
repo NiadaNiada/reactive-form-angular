@@ -5,11 +5,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import {PersonComponent} from './component/person.component';
+import  {HomeComponent} from  './component/home.component';
+import {FormComponent} from "./component/Form/form.component";
+import {DetailsService} from "./services/DetailsService";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonComponent
+    PersonComponent,
+    HomeComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +23,7 @@ import {PersonComponent} from './component/person.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
