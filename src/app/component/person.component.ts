@@ -11,7 +11,7 @@ import {DetailsService} from "../services/DetailsService";
 })
 
 export class PersonComponent implements OnInit {
-  users: InfoModel[];
+  @Input() users: InfoModel[];
 
   constructor(private detailsService: DetailsService) { }
 

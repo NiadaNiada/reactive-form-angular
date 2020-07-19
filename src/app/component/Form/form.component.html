@@ -1,17 +1,17 @@
 <div class="form">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
+
       <h4>Add the required information</h4>
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
-        <div class="form-group">
-          <label>Name</label>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Name*</label>
           <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': (submitted || f.name.touched) && f.name.errors }" />
           <div *ngIf="submitted || f.name.touched" class="invalid-feedback">
             <div *ngIf="f.name.errors?.required">Name is required</div>
             <div *ngIf="f.name.errors?.pattern">Name not valid. Please use letters</div>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-6">
           <label>Age</label>
           <input type="number" formControlName="age" class="form-control" [ngClass]="{ 'is-invalid': (submitted || f.age.touched) && f.age.errors }" />
           <div *ngIf="submitted || f.age.touched" class="invalid-feedback">
@@ -19,30 +19,26 @@
             <div *ngIf="f.age.errors?.pattern">Age is not valid. Please use digits</div>
           </div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': (submitted || f.email.touched) && f.email.errors }" />
+        <div class="form-group col-md-6">
+          <label>Email*</label>
+          <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': (submitted || f.email.touched) && f.email.errors }" />
           <div *ngIf="submitted || f.email.touched" class="invalid-feedback">
-            <div *ngIf="f.email.errors.required">Email is required</div>
-            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            <div *ngIf="f.email.errors?.required">Email is required</div>
+            <div *ngIf="f.email.errors?.email">Email must be a valid email address</div>
           </div>
         </div>
-        <div class="form-group">
-          <label>Gender</label>
+        <div class="form-group col-md-6">
+          <label>Gender*</label>
           <select class="custom-select" formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': (submitted || f.gender.touched) && f.gender.errors }" >
-            <option value="null" >Choose your gender</option>
+            <option value="" >Choose your gender</option>
             <option *ngFor="let gen of gender" [ngValue]="gen">{{gen}}</option>
             <div *ngIf="submitted || f.age.touched" class="invalid-feedback">
               <div *ngIf="f.gender.errors?.required">Gender is required</div>
             </div>>
           </select>
         </div>
-        <div class="form-group">
-          <div class="buttons">
-          <button [disabled]="!registerForm.valid" class="btn btn-primary">Submit</button>
-          <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
-          </div>
+          <button [disabled]="!registerForm.valid" class="btn btn-lg btn-outline-primary">Add</button>
         </div>
       </form>
-    </div>
+
   </div>

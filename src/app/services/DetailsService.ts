@@ -5,8 +5,14 @@ import {InfoModel} from '../../app/models/info.model';
   providedIn: 'root'
 })
 export class DetailsService {
+  users: InfoModel[] = [
+    {name: "Diana",
+      age: 30,
+      email: "diana.mail@mail.com",
+      gender: "Female"}
+  ];
 
-  users: InfoModel[];
+  constructor() { }
 
   getAllUsers(): InfoModel[] {
     return this.users;
@@ -14,5 +20,6 @@ export class DetailsService {
 
   addUser(user: InfoModel) {
     this.users = this.users.concat(user);
+    console.log(this.users)
   }
 }

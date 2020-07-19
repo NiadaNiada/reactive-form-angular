@@ -1,23 +1,40 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {DetailsService} from "../services/DetailsService";
+import {InfoModel} from "../models/info.model";
 
 @Component({
   selector: 'home-component',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  closeResult = '';
+export class HomeComponent implements OnInit{
+  closeRes = '';
+  users: InfoModel[];
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private detailsService: DetailsService) {}
+
+  ngOnInit(): void {
+    this.users = this.detailsService.getAllUsers();
+  }
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+     // this.closeResult = result;
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      this.closeRes = `Dismissed ${this.getDismissReason(reason)}`;
     });
+  }
+  onClose() {
+    this.modalService.dismissAll();
+    this.users = this.detailsService.getAllUsers();
+  }
+
+  onAdd(user: InfoModel) {
+    this.detailsService.addUser(user);
+    this.modalService.dismissAll();
+    this.users = this.detailsService.getAllUsers();
   }
 
   private getDismissReason(reason: any): string {

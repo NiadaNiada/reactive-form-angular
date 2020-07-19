@@ -1,8 +1,16 @@
-.list-title{
-  font-size: x-large;
-  color: crimson;
-}
-ul {
-  list-style-type: circle;
+
+.users-list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  .card {
+    width: fit-content;
+    height: 300px;
+    margin: 15px;
+    span {
+      margin-bottom: 15px;
+    }
+  }
+
 }
 
