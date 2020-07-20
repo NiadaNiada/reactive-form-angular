@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit{
     });
   }
   onClose() {
-    this.modalService.dismissAll();
     this.users = this.detailsService.getAllUsers();
+    this.modalService.dismissAll();
   }
 
   onAdd(user: InfoModel) {

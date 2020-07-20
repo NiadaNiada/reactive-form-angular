@@ -1,6 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import {FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ageValidator} from '../custom-validators/age.validator';
+import { Component, OnInit, Input } from '@angular/core';
 import {InfoModel} from "../models/info.model";
 import {DetailsService} from "../services/DetailsService";
 

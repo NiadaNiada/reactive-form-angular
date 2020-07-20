@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ageValidator} from '../../custom-validators/age.validator';
-import {DetailsService} from "../../services/DetailsService";
 import {InfoModel} from "../../models/info.model";
 
 @Component({
@@ -18,7 +17,7 @@ export class FormComponent implements OnInit {
   @Output() add = new EventEmitter();
   @Output() cancel = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder, private detailsService: DetailsService) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
